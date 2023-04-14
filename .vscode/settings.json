@@ -1,9 +1,7 @@
 {
   "debug.openExplorerOnEnd": true,
   "editor.tabSize": 2,
-  "editor.rulers": [
-    90
-  ],
+  "editor.rulers": [90],
   "editor.autoIndent": "full",
   "editor.cursorBlinking": "solid",
   "editor.formatOnType": false,
@@ -26,6 +24,27 @@
   "npm.enableScriptExplorer": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#d04649",
+    "activityBar.activeBorder": "#37cb34",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#37cb34",
+    "activityBarBadge.foreground": "#15202b",
+    "statusBar.background": "#b52e31",
+    "statusBarItem.hoverBackground": "#d04649",
+    "statusBar.foreground": "#e7e7e7",
+    "activityBar.activeBackground": "#d04649",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#d04649",
+    "statusBarItem.remoteBackground": "#b52e31",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#b52e31",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#b52e3199",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#b52e31",
   "auto-close-tag.SublimeText3Mode": true,
   "html.autoClosingTags": false,
   "gitlens.menus": {
