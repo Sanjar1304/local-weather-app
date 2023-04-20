@@ -2,14 +2,15 @@
   There is given no data
 </div>
 <div *ngIf="current" class="container">
-  <div fxLayout="row">
-    <div fxFlex="66%" class="no-margin mat-title">{{current.city}}, {{current.country}}
+  <div fxLayout="row" class="mat-title">
+    <div fxFlex="66%" class="no-margin city-country">{{current.city}}, {{current.country}}
     </div>
-    <div class="right mat-h3 no-margin" fxFlex>{{current.date | date:'EEEE MMM d'}}</div>
+    <div class="right mat-h3 no-margin" fxFlex>
+      {{current.date | date:'EEEE MMM d'}}{{getOrdinal(current.date)}}</div>
   </div>
-  <div fxLayout="row">
+  <div fxLayout="row" fxLayoutAlign="center center">
     <div fxFlex="66%">
-      <div class="wrapper-img" fxFlex>
+      <div fxFlex>
         <img class="image" [src]="current.image">
       </div>
     </div>

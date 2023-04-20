@@ -9,7 +9,7 @@ import { Component } from '@angular/core'
       </mat-toolbar>
 
       <div class="title-card">
-        <div class="body-title">Your city, your forecast, right now!</div>
+        <div class="body-title vertical-margin">Your city, your forecast, right now!</div>
 
         <div class="mat-card-wrapper">
           <mat-card>

@@ -2,17 +2,20 @@
   margin-top: 1rem;
 }
 
+.mat-title {
+  display: flex;
+  justify-content: center;
+}
+
+.city-country {
+  margin-top: 0.25rem;
+}
+
 .right {
   text-align: right;
 }
 
-.wrapper-img {
-  position: absolute;
-}
-
 .image {
-  position: relative;
-  margin-top: -1rem;
   zoom: 250%;
 }
 
@@ -20,11 +23,10 @@
   display: flex;
   flex-direction: row;
   margin-left: 0.5rem;
-  font-size: 2rem;
+  font-size: 3.5rem;
 }
 
 .center {
-  margin-top: 3rem;
   font-size: 1rem;
 }
 
