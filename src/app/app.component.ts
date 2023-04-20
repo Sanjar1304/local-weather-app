@@ -8,21 +8,23 @@ import { Component } from '@angular/core'
         <span>LocalCast Weather</span>
       </mat-toolbar>
 
-      <div>Your city, your forecast, right now!</div>
-      <div fxLayout="row">
-        <div fxFlex></div>
-        <mat-card fxFlex="300px">
-          <mat-card-header>
-            <mat-card-title>Current Weather</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <app-current-weather></app-current-weather>
-          </mat-card-content>
-        </mat-card>
+      <div class="title-card">
+        <div class="body-title">Your city, your forecast, right now!</div>
+
+        <div class="mat-card-wrapper" fxLayout="row">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Current Weather</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <app-current-weather></app-current-weather>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
-      <div fxFlex></div>
     </div>
   `,
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'local-weather-app'
