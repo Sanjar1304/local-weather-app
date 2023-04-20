@@ -1,0 +1,33 @@
+.container {
+  margin-top: 1rem;
+}
+
+.right {
+  text-align: right;
+}
+
+.wrapper-img {
+  position: absolute;
+}
+
+.image {
+  position: relative;
+  margin-top: -1rem;
+  zoom: 250%;
+}
+
+.temperature {
+  display: flex;
+  flex-direction: row;
+  margin-left: 0.5rem;
+  font-size: 2rem;
+}
+
+.center {
+  margin-top: 3rem;
+  font-size: 1rem;
+}
+
+.no-margin {
+  margin-bottom: 0;
+}

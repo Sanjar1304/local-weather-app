@@ -11,10 +11,12 @@ import { Component } from '@angular/core'
       <div class="title-card">
         <div class="body-title">Your city, your forecast, right now!</div>
 
-        <div class="mat-card-wrapper" fxLayout="row">
+        <div class="mat-card-wrapper">
           <mat-card>
-            <mat-card-header>
-              <mat-card-title>Current Weather</mat-card-title>
+            <mat-card-header class="mat-typography">
+              <mat-card-title>
+                <div class="mat-headline">Current Weather</div>
+              </mat-card-title>
             </mat-card-header>
             <mat-card-content>
               <app-current-weather></app-current-weather>
