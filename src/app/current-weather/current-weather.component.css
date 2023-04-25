@@ -22,8 +22,20 @@
 .temperature {
   display: flex;
   flex-direction: row;
-  margin-left: 0.5rem;
+  margin-left: 4rem;
   font-size: 3.5rem;
+}
+
+.p-tempterature {
+  margin: -3.5rem 0 0 0;
+  position: relative;
+}
+
+.unit {
+  vertical-align: super;
+  font-size: 2rem;
+  position: absolute;
+  top: 0.5rem;
 }
 
 .center {
