@@ -1,5 +1,4 @@
 import { Component } from '@angular/core'
-import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-root',
@@ -29,4 +28,6 @@ import { Observable } from 'rxjs'
   `,
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'local-weather-app'
+}
