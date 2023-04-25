@@ -1,0 +1,47 @@
+.container {
+  margin-top: 1rem;
+}
+
+.mat-title {
+  display: flex;
+  justify-content: center;
+}
+
+.city-country {
+  margin-top: 0.25rem;
+}
+
+.right {
+  text-align: right;
+}
+
+.image {
+  zoom: 250%;
+}
+
+.temperature {
+  display: flex;
+  flex-direction: row;
+  margin-left: 4rem;
+  font-size: 3.5rem;
+}
+
+.p-tempterature {
+  margin: -3.5rem 0 0 0;
+  position: relative;
+}
+
+.unit {
+  vertical-align: super;
+  font-size: 2rem;
+  position: absolute;
+  top: 0.5rem;
+}
+
+.center {
+  font-size: 1rem;
+}
+
+.no-margin {
+  margin-bottom: 0;
+}
