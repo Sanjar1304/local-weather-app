@@ -29,7 +29,4 @@ import { Observable } from 'rxjs'
   `,
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'local-weather-app'
-  observable = new Observable()
-}
+export class AppComponent {}
