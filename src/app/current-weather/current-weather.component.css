@@ -12,7 +12,7 @@
 }
 
 .right {
-  text-align: right;
+  text-align: left;
 }
 
 .image {
@@ -27,7 +27,7 @@
 }
 
 .p-tempterature {
-  margin: -3.5rem 0 0 0;
+  margin: -3rem 2.5rem 0 0;
   position: relative;
 }
 
@@ -35,7 +35,8 @@
   vertical-align: super;
   font-size: 2rem;
   position: absolute;
-  top: 0.5rem;
+  top: -0.5rem;
+  left: 4.5rem;
 }
 
 .center {
