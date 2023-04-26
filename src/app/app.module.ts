@@ -9,10 +9,11 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
 import { MaterialModule } from './material.module'
-import { SideNavComponent } from './side-nav/side-nav.component'
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { CitySearchComponent } from './city-search/city-search.component'
 
 @NgModule({
-  declarations: [AppComponent, CurrentWeatherComponent, SideNavComponent],
+  declarations: [AppComponent, CurrentWeatherComponent, SideNavComponent, CitySearchComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
