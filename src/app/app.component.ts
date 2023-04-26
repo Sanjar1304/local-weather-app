@@ -4,12 +4,14 @@ import { Component } from '@angular/core'
   selector: 'app-root',
   template: `
     <div>
-      <mat-toolbar color="primary">
-        <span>LocalCast Weather</span>
-      </mat-toolbar>
+      <mat-toolbar color="primary"><span>LocalCast Weather</span></mat-toolbar>
 
       <div class="title-card">
         <div class="body-title vertical-margin">Your city, your forecast, right now!</div>
+
+        <div fxLayoutAlign="center">
+          <app-city-search></app-city-search>
+        </div>
 
         <div class="mat-card-wrapper">
           <mat-card>
