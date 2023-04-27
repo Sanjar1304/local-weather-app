@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 import { debounceTime } from 'rxjs'
-import { filter, tap } from 'rxjs/operators'
 
 import { WeatherService } from '../weather/weather.service'
 
@@ -16,8 +15,8 @@ export class CitySearchComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
-    this.search.valueChanges.subscribe((searchValue: any) => {
-      if (searchValue) {
+    this.search.valueChanges.pipe(debounceTime(1000)).subscribe((searchValue: any) => {
+      if (!this.search.invalid) {
         const userInput = searchValue.split(',').map((s: string) => s.trim())
 
         this.weatherService
@@ -28,5 +27,11 @@ export class CitySearchComponent implements OnInit {
           .subscribe((data) => console.log(data))
       }
     })
+  }
+
+  getErrorMessage() {
+    return this.search.hasError('minLength')
+      ? 'Type more than one character to search'
+      : ''
   }
 }
