@@ -13,19 +13,20 @@ import { WeatherService } from '../weather/weather.service'
 export class CitySearchComponent implements OnInit {
   search = new FormControl('', [Validators.required, Validators.minLength(2)])
 
-  constructor(private weatherService: WeatherService) {
-    this.search.valueChanges.pipe(
-      debounceTime(1000),
-      filter(() => !this.search.invalid),
-      tap((searchValue: string) => this.doSearch(searchValue))
-    )
-  }
+  constructor(private weatherService: WeatherService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.search.valueChanges.subscribe((searchValue: any) => {
+      if (searchValue) {
+        const userInput = searchValue.split(',').map((s: string) => s.trim())
 
-  doSearch(searchValue: string) {
-    const userInput = searchValue.split(',').map((s) => s.trim())
-    const searchText = userInput[0]
-    const country = userInput.length > 1 ? userInput[1] : undefined
+        this.weatherService
+          .getCurrentWeather(
+            userInput[0],
+            userInput.length > 1 ? userInput[1] : undefined
+          )
+          .subscribe((data) => console.log(data))
+      }
+    })
   }
 }
