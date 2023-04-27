@@ -16,7 +16,7 @@ export class CitySearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.search.valueChanges.pipe(debounceTime(1000)).subscribe((searchValue: any) => {
-      if (!this.search.invalid) {
+      if (searchValue) {
         const userInput = searchValue.split(',').map((s: string) => s.trim())
 
         this.weatherService
@@ -27,11 +27,5 @@ export class CitySearchComponent implements OnInit {
           .subscribe((data) => console.log(data))
       }
     })
-  }
-
-  getErrorMessage() {
-    return this.search.hasError('minLength')
-      ? 'Type more than one character to search'
-      : ''
   }
 }
