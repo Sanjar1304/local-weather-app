@@ -1,5 +1,8 @@
 import { Component } from '@angular/core'
 
+import { ICurrentWeather } from './interfaces'
+import { WeatherService } from './weather/weather.service'
+
 @Component({
   selector: 'app-root',
   template: `
@@ -10,7 +13,7 @@ import { Component } from '@angular/core'
         <div class="body-title vertical-margin">Your city, your forecast, right now!</div>
 
         <div fxLayoutAlign="center">
-          <app-city-search></app-city-search>
+          <app-city-search (searchEvent)="doSearch($event)"></app-city-search>
         </div>
 
         <div class="mat-card-wrapper">
@@ -21,7 +24,7 @@ import { Component } from '@angular/core'
               </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <app-current-weather></app-current-weather>
+              <app-current-weather [current]="currentWeather"></app-current-weather>
             </mat-card-content>
           </mat-card>
         </div>
@@ -32,4 +35,14 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
   title = 'local-weather-app'
+  currentWeather!: ICurrentWeather
+
+  constructor(private weatherService: WeatherService) {}
+
+  doSearch(searchValue: string) {
+    const userInput = searchValue.split(',').map((s: string) => s.trim())
+    this.weatherService
+      .getCurrentWeather(userInput[0], userInput.length > 1 ? userInput[1] : undefined)
+      .subscribe((data) => (this.currentWeather = data))
+  }
 }
