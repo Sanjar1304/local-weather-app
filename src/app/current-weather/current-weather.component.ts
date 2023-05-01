@@ -14,9 +14,7 @@ export class CurrentWeatherComponent implements OnInit {
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
-    this.weatherService.getCurrentWeather('Tashkent', 'Uzbekistan').subscribe((data) => {
-      this.current = data
-    })
+    this.weatherService.currentWeathers$.subscribe((data) => (this.current = data))
   }
 
   getOrdinal(date: number) {
