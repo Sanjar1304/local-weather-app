@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators'
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
 
-interface ICurrentWeatherData {
+export interface ICurrentWeatherData {
   weather: [
     {
       description: string
@@ -23,31 +23,29 @@ interface ICurrentWeatherData {
   name: string
 }
 
+export const defaultWeather: ICurrentWeather = {
+  city: '--',
+  country: '--',
+  date: Date.now(),
+  image: '',
+  temperature: 0,
+  description: '',
+}
+
 export interface IWeatherService {
   readonly currentWeather$: BehaviorSubject<ICurrentWeather>
-  getCurrentWeather(
-    search: string | number,
-    country?: string
-  ): Observable<ICurrentWeather>
+  getCurrentWeather(city: string, country?: string): Observable<ICurrentWeather>
   getCurrentWeatherByCoords(coords: GeolocationCoordinates): Observable<ICurrentWeather>
-  updateCurrentWeather(search: string | number, country?: string): void
+  updateCurrentWeather(searchText: string, country?: string): void
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class WeatherService implements IWeatherService {
-  readonly currentWeathers$ = new BehaviorSubject<ICurrentWeather>({
-    city: '',
-    country: '',
-    date: Date.now(),
-    image: '',
-    temperature: 0,
-    description: '',
-  })
+  readonly currentWeather$ = new BehaviorSubject<ICurrentWeather>(defaultWeather)
 
   constructor(private http: HttpClient) {}
-  currentWeather$!: BehaviorSubject<ICurrentWeather>
 
   getCurrentWeather(
     search: string | number,
@@ -98,7 +96,7 @@ export class WeatherService implements IWeatherService {
 
   updateCurrentWeather(search: string | number, country?: string): void {
     this.getCurrentWeather(search, country).subscribe((weather) =>
-      this.currentWeathers$.next(weather)
+      this.currentWeather$.next(weather)
     )
   }
 }

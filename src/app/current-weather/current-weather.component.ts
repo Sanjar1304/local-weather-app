@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core'
-import { Subscription } from 'rxjs'
+import { Observable } from 'rxjs'
 
 import { ICurrentWeather } from '../interfaces'
 import { WeatherService } from '../weather/weather.service'
@@ -10,16 +10,13 @@ import { WeatherService } from '../weather/weather.service'
   styleUrls: ['./current-weather.component.css'],
 })
 export class CurrentWeatherComponent implements OnInit, OnDestroy {
-  @Input() current!: ICurrentWeather
-  currentWeatherSubscription!: Subscription
+  current$: Observable<ICurrentWeather>
 
-  constructor(private weatherService: WeatherService) {}
-
-  ngOnInit(): void {
-    this.currentWeatherSubscription = this.weatherService.currentWeathers$.subscribe(
-      (data) => (this.current = data)
-    )
+  constructor(private weatherService: WeatherService) {
+    this.current$ = this.weatherService.currentWeather$
   }
+
+  ngOnInit(): void {}
 
   getOrdinal(date: number) {
     const n = new Date(date).getDate()
@@ -28,7 +25,5 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
       : ''
   }
 
-  ngOnDestroy(): void {
-    this.currentWeatherSubscription.unsubscribe()
-  }
+  ngOnDestroy(): void {}
 }
