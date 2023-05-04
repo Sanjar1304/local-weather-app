@@ -13,7 +13,7 @@ import { WeatherService } from './weather/weather.service'
         <div class="body-title vertical-margin">Your city, your forecast, right now!</div>
 
         <div fxLayoutAlign="center">
-          <app-city-search (searchEvent)="doSearch($event)"></app-city-search>
+          <app-city-search></app-city-search>
         </div>
 
         <div class="mat-card-wrapper">
@@ -38,12 +38,4 @@ export class AppComponent {
   currentWeather!: ICurrentWeather
 
   constructor(private weatherService: WeatherService) {}
-
-  doSearch(searchValue: string) {
-    const userInput = searchValue.split(',').map((s: string) => s.trim())
-    this.weatherService.updateCurrentWeather(
-      userInput[0],
-      userInput.length > 1 ? userInput[1] : undefined
-    )
-  }
 }
