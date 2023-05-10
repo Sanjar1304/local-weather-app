@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators'
 
 import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
+import { PostalCodeService } from '../postal-code/postal-code.service'
 
 export interface ICurrentWeatherData {
   weather: [
@@ -36,7 +37,7 @@ export interface IWeatherService {
   readonly currentWeather$: BehaviorSubject<ICurrentWeather>
   getCurrentWeather(city: string, country?: string): Observable<ICurrentWeather>
   getCurrentWeatherByCoords(coords: GeolocationCoordinates): Observable<ICurrentWeather>
-  updateCurrentWeather(searchText: string, country?: string): void
+  updateCurrentWeather(search: string, country?: string): void
 }
 
 @Injectable({
@@ -45,7 +46,7 @@ export interface IWeatherService {
 export class WeatherService implements IWeatherService {
   readonly currentWeather$ = new BehaviorSubject<ICurrentWeather>(defaultWeather)
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private postalCodeService: PostalCodeService) {}
 
   getCurrentWeather(
     search: string | number,
